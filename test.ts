@@ -1,14 +1,42 @@
-import { assertStringContains, assertEquals, fail } from "https://deno.land/std/testing/asserts.ts";
+import { fail, assertEquals } from "https://deno.land/std/testing/asserts.ts";
 import { Utilities } from "./utilities.ts";
 
-Deno.test("test it", async (): Promise<void> => {
-
+Deno.test("get random number between min and max value", async (): Promise<void> => {
     const randomNumberBetween10And100 = Utilities.getRandomArbitrary(10, 100)
     if (randomNumberBetween10And100 < 10 || randomNumberBetween10And100 > 100) {
         fail(`A number between 10 and 100 was expected`)
     } else {
         console.log(`\n\ncool - ${randomNumberBetween10And100} is a random number between 10 and 100`)
     }
+});
+
+Deno.test("get next x dates", async (): Promise<void> => {
+    const arrayWithDates: string[] = Utilities.getNextXDates('2020-03-12', 3)
+
+    console.log(JSON.stringify(arrayWithDates))
+    assertEquals(4, arrayWithDates.length)
+
+});
+
+Deno.test("get number of days between", async (): Promise<void> => {
+    const result =  Utilities.getNumberOfDaysBetween('2020-03-12', '2020-03-13')
+
+    console.log(JSON.stringify(result))
+    assertEquals(1, result)
+
+});
+
+Deno.test("get number of occurrences in text", async (): Promise<void> => {
+    const result =  Utilities.getNumberOfOccurrencesInText('abc', 'fooabcagainabcsomething')
+
+    assertEquals(2, result)
+
+});
+
+Deno.test("replace all occurrences of ... in text", async (): Promise<void> => {
+    const result =  Utilities.replaceAllOccurrencesOf('abc', 'fooabcagainabcsomething')
+
+    assertEquals('fooagainsomething', result)
 
 });
 
