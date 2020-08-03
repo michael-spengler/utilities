@@ -8,6 +8,12 @@ export class Utilities {
         return Math.round(Math.random() * (max - min) + min)
     }
 
+    public static shuffleArray(unshuffledArray: any[]): any[] {
+        let theNewOne = unshuffledArray.slice()
+        theNewOne = theNewOne.sort((a, b) => 0.5 - Math.random())
+        return theNewOne
+    }
+
     public static getNextXDates(startDate: string, numberOfDays: number): string[] {
         let counter = 0
         let arrayOfDates = [startDate]

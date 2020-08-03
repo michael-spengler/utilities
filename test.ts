@@ -1,5 +1,6 @@
-import { fail, assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { fail, assertEquals, assertNotEquals } from "https://deno.land/std/testing/asserts.ts";
 import { Utilities } from "./utilities.ts";
+import { englishAlphabet } from "https://deno.land/x/nlp/alphabets.ts";
 
 Deno.test("get random number between min and max value", async (): Promise<void> => {
     const randomNumberBetween10And100 = Utilities.getRandomArbitrary(10, 100)
@@ -38,5 +39,14 @@ Deno.test("replace all occurrences of ... in text", async (): Promise<void> => {
 
     assertEquals('fooagainsomething', result)
 
+});
+
+Deno.test("shuffle array", async (): Promise<void> => {
+    const unshuffledArray: string[] = englishAlphabet
+    const shuffledArray = Utilities.shuffleArray(unshuffledArray)
+    console.log(unshuffledArray)
+    console.log(shuffledArray)
+    assertNotEquals(unshuffledArray, shuffledArray)
+    assertEquals(shuffledArray.length, unshuffledArray.length)
 });
 

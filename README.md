@@ -1,11 +1,7 @@
 # Utilities
 
 Deno Module with typically useful utilities like random delay etc. 
-
-## Call usage example via command line
-```
-deno run usage-example.ts 
-```
+To explore the utilities check the test.ts file.
 
 ## Execute the tests
 ```
