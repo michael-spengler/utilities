@@ -54,7 +54,15 @@ export class Utilities {
 
 
     public static getNumberOfDaysBetween(startDate: string, endDate: string): number {
-        return 1
+        throw new Error('not yet implemented')
+    }
+
+    public static getSnippetBetween(delimiter1: string, delimiter2: string, text: string): string {
+        const snippet = text
+            .split(delimiter1)[1]
+            .split(delimiter2)[0]
+
+        return snippet
     }
 
     public static getNumberOfOccurrencesInText(searchString: string, text: string): number {
@@ -68,12 +76,11 @@ export class Utilities {
     }
 
 
-    public static replaceAllOccurrencesOf(searchString: string, text: string): string {
+    public static replaceAllOccurrencesOf(searchString: string, replacementText: string, text: string): string {
         let result = text
         while (result.indexOf(searchString) !== -1) {
-            result = result.replace(searchString, '')
+            result = result.replace(searchString, replacementText)
         }
         return result
-
     }
 }

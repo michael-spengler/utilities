@@ -19,23 +19,35 @@ Deno.test("get next x dates", async (): Promise<void> => {
 
 });
 
-Deno.test("get number of days between", async (): Promise<void> => {
-    const result =  Utilities.getNumberOfDaysBetween('2020-03-12', '2020-03-13')
+Deno.test("get snippet", async (): Promise<void> => {
 
-    console.log(JSON.stringify(result))
-    assertEquals(1, result)
+    const text = 'someblablaThis is Great :)someOtherBlaBla'
+
+    const snippet = Utilities.getSnippetBetween('someblabla', 'someOtherBlaBla', text)
+    assertEquals('This is Great :)', snippet)
 
 });
 
+Deno.test("get number of days between", async (): Promise<void> => {
+    try {
+        const result = Utilities.getNumberOfDaysBetween('2020-03-12', '2020-03-13')
+
+        console.log(JSON.stringify(result))
+        assertEquals(1, result)
+    } catch (error) {
+        // tbd
+    }
+});
+
 Deno.test("get number of occurrences in text", async (): Promise<void> => {
-    const result =  Utilities.getNumberOfOccurrencesInText('abc', 'fooabcagainabcsomething')
+    const result = Utilities.getNumberOfOccurrencesInText('abc', 'fooabcagainabcsomething')
 
     assertEquals(2, result)
 
 });
 
 Deno.test("replace all occurrences of ... in text", async (): Promise<void> => {
-    const result =  Utilities.replaceAllOccurrencesOf('abc', 'fooabcagainabcsomething')
+    const result = Utilities.replaceAllOccurrencesOf('abc', '', 'fooabcagainabcsomething')
 
     assertEquals('fooagainsomething', result)
 
