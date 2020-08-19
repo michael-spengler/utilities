@@ -3,7 +3,7 @@ import { Utilities } from "./utilities.ts";
 import { englishAlphabet } from "https://deno.land/x/nlp@1.2.1/alphabets.ts";
 
 Deno.test("get random number between min and max value", async (): Promise<void> => {
-    const randomNumberBetween10And100 = Utilities.getRandomArbitrary(10, 100)
+    const randomNumberBetween10And100 = Utilities.getRandomArbitrary(10, 100, true)
     if (randomNumberBetween10And100 < 10 || randomNumberBetween10And100 > 100) {
         fail(`A number between 10 and 100 was expected`)
     } else {
