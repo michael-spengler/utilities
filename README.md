@@ -17,7 +17,7 @@ console.log(randomNumberBetween10And100)
 ## Execute the tests
 ```sh
   
-deno test https://deno.land/x/utilities@1.0.0/test.ts
+deno test https://deno.land/x/utilities/test.ts
   
 ``` 
   
