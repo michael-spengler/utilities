@@ -1,6 +1,3 @@
-<a target="__blank" href="https://brave.com/">
-<img style="text-align: center" src="https://brave.com/wp-content/uploads/2019/01/logotype-full-color.svg" alt="drawing" width="220" />
-</a>
 
 # Utilities
 
