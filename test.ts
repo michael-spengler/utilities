@@ -1,7 +1,6 @@
 import { fail, assertEquals, assertNotEquals } from "https://deno.land/std/testing/asserts.ts";
 import { Utilities } from "./utilities.ts";
-// import { Utilities } from "https://deno.land/x/utilities@1.0.0/utilities.ts";
-import { englishAlphabet } from "https://deno.land/x/nlp/alphabets.ts";
+import { englishAlphabet } from "https://deno.land/x/nlp@1.2.1/alphabets.ts";
 
 Deno.test("get random number between min and max value", async (): Promise<void> => {
     const randomNumberBetween10And100 = Utilities.getRandomArbitrary(10, 100)
@@ -13,10 +12,10 @@ Deno.test("get random number between min and max value", async (): Promise<void>
 });
 
 Deno.test("get next x dates", async (): Promise<void> => {
-    const arrayWithDates: string[] = Utilities.getNextXDates('2020-03-12', 3)
+    const arrayWithDates: string[] = Utilities.getNextXDates(3)
 
     console.log(JSON.stringify(arrayWithDates))
-    assertEquals(4, arrayWithDates.length)
+    assertEquals(3, arrayWithDates.length)
 
 });
 
