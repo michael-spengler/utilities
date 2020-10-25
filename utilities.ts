@@ -35,26 +35,13 @@ export class Utilities {
         return arrayOfDates
     }
 
-    public static getDateString(date: any) {
-        let day = date.getUTCDate().toString()
-        let month = (date.getMonth() + 1).toString()
-        let year = date.getUTCFullYear()
-
-        if (day.length === 1) {
-            day = `0${day}`
-        }
-
-        if (month.length === 1) {
-            month = `0${month}`
-        }
-        const it = `${year}-${month}-${day}`
-
-        return it
+    public static getDateString(date: Date) {
+        return date.toISOString().split('T')[0]
     }
 
 
-    public static getNumberOfDaysBetween(startDate: string, endDate: string): number {
-        throw new Error('not yet implemented')
+    public static getNumberOfDaysBetween(startDate: Date, endDate: Date): number {
+        return Math.floor((endDate.getTime()-startDate.getTime())/1000/60/60/24)
     }
 
     public static getSnippetBetween(delimiter1: string, delimiter2: string, text: string): string {
@@ -66,13 +53,7 @@ export class Utilities {
     }
 
     public static getNumberOfOccurrencesInText(searchString: string, text: string): number {
-        let counter = 0
-        console.log(text)
-        while (text.indexOf(searchString) !== -1) {
-            counter += 1
-            text = text.replace(searchString, '')
-        }
-        return counter
+        return text.split(searchString).length-1
     }
 
 
