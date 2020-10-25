@@ -30,7 +30,7 @@ Deno.test("get snippet", async (): Promise<void> => {
 
 Deno.test("get number of days between", async (): Promise<void> => {
     try {
-        const result = Utilities.getNumberOfDaysBetween('2020-03-12', '2020-03-13')
+        const result = Utilities.getNumberOfDaysBetween(new Date('2020-03-12'), new Date('2020-03-13'))
 
         console.log(JSON.stringify(result))
         assertEquals(1, result)
